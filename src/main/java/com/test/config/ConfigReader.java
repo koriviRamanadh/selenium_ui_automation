@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ConfigReader {
     private static Properties properties;
-    private static final String configPath = "C:/Users/Divya/OneDrive/Desktop/selenium_ui_automation/resources/config.properties";
+    private static final String configPath = "src/com/test/resources/config.properties";
 
     static {
     try(FileInputStream fis = new FileInputStream(configPath)){
