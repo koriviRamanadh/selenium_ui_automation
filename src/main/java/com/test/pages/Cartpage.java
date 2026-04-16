@@ -6,13 +6,14 @@ import java.util.List;
 
 public class Cartpage extends BasePage{
     
+    private final By pageTitle       = By.className("title");
     private final By cartItems = By.className("cart_item");
     private final By removeButtons = By.xpath("//button[text() = 'remove']");
     private final By checkoutButton = By.id("checkout");
     private final By continueButton = By.id("continue-shopping");
     private final By itemNames = By.className("inventory_item_name");
 
-    public int getCartItemcount(){
+    public int getCartItemCount(){
         return driver.findElements(cartItems).size();
     }
 
@@ -20,11 +21,21 @@ public class Cartpage extends BasePage{
         return driver.findElements(itemNames);
     }
 
+    public void removeFirstItem() {
+        List<WebElement> buttons = driver.findElements(removeButtons);
+        if (!buttons.isEmpty()) buttons.get(0).click();
+    }
+
+
     public void removeItems(int index){
         List<WebElement> buttons = driver.findElements(removeButtons);
         if(!buttons.isEmpty()){
             buttons.get(index).click();
         }
+    }
+
+    public boolean isCartPageDisplayed() {
+        return isDisplayed(pageTitle) && getText(pageTitle).equals("Your Cart");
     }
 
     public void clickCheckout(){

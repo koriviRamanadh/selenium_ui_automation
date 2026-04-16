@@ -24,7 +24,6 @@ public class ProductsTest {
     public void testAddProductToCart(){
         ProductsPage productsPage = loginAndGetProductsPage();
         productsPage.addFirstProductToCart();
-
         String badgeCount = productsPage.getCartBadgeCount();
         Assert.assertEquals(badgeCount, "1", "cart badege should show 1 after adding a product");
     }

@@ -31,7 +31,7 @@ public class ProductsPage extends BasePage {
         if (!buttons.isEmpty()) buttons.get(0).click();
     }
 
-    public void addProductTocart(int index){
+    public void addProductToCart(int index){
         List<WebElement> buttons = driver.findElements(addToCartButtons);
         if(index < buttons.size()){
             buttons.get(index).click();
