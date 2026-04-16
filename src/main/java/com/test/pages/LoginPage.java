@@ -8,6 +8,8 @@ public class LoginPage extends BasePage{
     private final By usernameField = By.id("user-name");
     private final By passwordField = By.id("password");
     private final By loginButtton = By.id("login-button");
+    private final By errorMessage    = By.cssSelector("[data-test='error']");
+    private final By loginLogo       = By.className("login_logo");
 
     //Actions
     public void enterUsername(String username){
@@ -33,6 +35,17 @@ public class LoginPage extends BasePage{
         enterUsername(username);
         enterPassword(password);
         clickLogin();
+    }
+
+    //Verifications
+    public boolean isLoginPageDisplayed(){
+         return isDisplayed(loginLogo); 
+    }
+    public boolean isErrorDisplayed(){
+         return isDisplayed(errorMessage); 
+    }
+    public String getErrorMessage(){
+         return getText(errorMessage);
     }
     
 }

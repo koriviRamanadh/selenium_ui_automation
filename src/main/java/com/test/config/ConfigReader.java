@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ConfigReader {
     private static Properties properties;
-    private static final String configPath = "src/com/test/resources/config.properties";
+    private static final String configPath = "src/main/java/com/test/resources/config.properties";
 
     static {
     try(FileInputStream fis = new FileInputStream(configPath)){
@@ -51,5 +51,13 @@ public class ConfigReader {
 
     public static int getPageLoadTimeouts(){
         return Integer.parseInt(getProperty("pageLoadTimeouts"));
+    }
+
+    public static String getInvalidUsername(){
+        return getProperty("invalidUsername");
+    }
+
+    public static String getInvalidPassword(){
+        return getProperty("invalidPassword");
     }
 }

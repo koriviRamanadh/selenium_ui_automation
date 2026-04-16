@@ -1,31 +1,20 @@
 package com.test;
-
-import static org.junit.Assert.assertTrue;
-
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import com.test.utils.DriverManager;
 import org.testng.annotations.*;
 import com.test.config.ConfigReader;
+
+
 public class BaseTest {
-
-    public WebDriver driver;
-    public WebDriverWait wait;
-
-    @BeforeClass
+    @BeforeMethod
     public void setUp(){
-         driver = new ChromeDriver();
-         wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(10));
-         driver.get(ConfigReader.getProperty("baseURL"));
+         DriverManager.initDriver();
+         DriverManager.getDriver().get(ConfigReader.getBaseURL());
     }
 
-    @Test
-    public void baseTest(){
-        assertTrue(true);
-    }
-
-    @AfterClass
+    @AfterMethod
     public void tearDown(){
-        driver.quit();
+        DriverManager.quitDriver();
     }
+
 }
+
