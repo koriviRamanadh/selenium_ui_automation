@@ -42,15 +42,15 @@ public class ConfigReader {
     }
 
     public static int getImplicitWait(){
-        return Integer.parseInt(getProperty("implictWait"));
+        return Integer.parseInt(getProperty("implicitWait"));
     }
 
     public static int getExplictWait(){
-        return Integer.parseInt(getProperty("explictWaits"));
+        return Integer.parseInt(getProperty("explicitWait"));
     }
 
     public static int getPageLoadTimeouts(){
-        return Integer.parseInt(getProperty("pageLoadTimeouts"));
+        return Integer.parseInt(getProperty("pageLoadTimeout"));
     }
 
     public static String getInvalidUsername(){

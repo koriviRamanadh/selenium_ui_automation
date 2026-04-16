@@ -11,7 +11,7 @@ public class ProductsPage extends BasePage {
     private final By pageTitle        = By.className("title");
     private final By productNames = By.className("inventory_item_name");
     private final By addToCartButtons = By.xpath("//button[text()='Add to cart']");
-    //private final By cartBadge = By.className("shopping_cart_badge");
+    private final By cartBadge = By.className("shopping_cart_badge");
     private final By cartIcon = By.className("shoppin_cart_link");
     private final By sortDropDown = By.className("product_sort_container");
     private final By menu = By.id("react-burger-menu-btn");
@@ -26,11 +26,20 @@ public class ProductsPage extends BasePage {
         return getAllProducts().size();
     }
 
+    public void addFirstProductToCart() {
+        List<WebElement> buttons = driver.findElements(addToCartButtons);
+        if (!buttons.isEmpty()) buttons.get(0).click();
+    }
+
     public void addProductTocart(int index){
         List<WebElement> buttons = driver.findElements(addToCartButtons);
         if(index < buttons.size()){
             buttons.get(index).click();
         }
+    }
+
+    public String getCartBadgeCount() {
+        return isDisplayed(cartBadge) ? getText(cartBadge) : "0";
     }
 
     public void selectSortOption(String visibleText){

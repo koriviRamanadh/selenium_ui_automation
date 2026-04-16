@@ -1,9 +1,12 @@
 package com.test.utils;
 
 import java.time.Duration;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.test.config.ConfigReader;
@@ -11,6 +14,25 @@ import com.test.config.ConfigReader;
 public class DriverManager {
 
     private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();
+
+     private static ChromeOptions getChromeOptions() {
+        ChromeOptions options = new ChromeOptions();
+
+        //  Disable Google Password Manager breach detection popup
+        Map<String, Object> prefs = new HashMap<>();
+        prefs.put("credentials_enable_service", false);
+        prefs.put("profile.password_manager_enabled", false);
+        prefs.put("profile.password_manager_leak_detection", false); // this disables the breach warning
+
+        options.setExperimentalOption("prefs", prefs);
+
+        //  Also suppress general Chrome password popups
+        options.addArguments("--disable-save-password-bubble");
+        options.addArguments("--disable-features=PasswordCheck");
+
+        return options;
+    }
+
 
     public static void initDriver(){
         String browser = ConfigReader.getProperty("browser").toLowerCase();
@@ -22,7 +44,7 @@ public class DriverManager {
                 break;
             case "chrome" :
             default:
-                webDriver = new ChromeDriver();
+                webDriver = new ChromeDriver(getChromeOptions());
                 break;
         }
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
