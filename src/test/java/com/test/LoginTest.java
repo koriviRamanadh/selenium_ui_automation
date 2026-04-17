@@ -48,6 +48,8 @@ public class LoginTest extends BaseTest{
         ProductsPage productsPage = loginPage.loginWithValidCredentials(ConfigReader.getUserName(),ConfigReader.getPassword());
         productsPage.logout();
         Assert.assertTrue(loginPage.isLoginPageDisplayed(), "Should return to login page after logout");
+        //Uncomment this to check the screenshot feature 
+        //Assert.assertTrue(false,"To showcase that screenshot is capturing");
     }
 
 
