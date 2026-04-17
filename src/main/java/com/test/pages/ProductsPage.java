@@ -5,14 +5,14 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 import org.openqa.selenium.support.ui.Select;
 
-public class ProductsPage extends BasePage {
+public class ProductsPage extends BasePage{
 
     //Locators
     private final By pageTitle        = By.className("title");
     private final By productNames = By.className("inventory_item_name");
     private final By addToCartButtons = By.xpath("//button[text()='Add to cart']");
     private final By cartBadge = By.className("shopping_cart_badge");
-    private final By cartIcon = By.className("shoppin_cart_link");
+    private final By cartIcon = By.className("shopping_cart_link");
     private final By sortDropDown = By.className("product_sort_container");
     private final By menu = By.id("react-burger-menu-btn");
     private final By logoutLink = By.id("logout_sidebar_link");
@@ -26,7 +26,7 @@ public class ProductsPage extends BasePage {
         return getAllProducts().size();
     }
 
-    public void addFirstProductToCart() {
+    public void addFirstProductToCart(){
         List<WebElement> buttons = driver.findElements(addToCartButtons);
         if (!buttons.isEmpty()) buttons.get(0).click();
     }

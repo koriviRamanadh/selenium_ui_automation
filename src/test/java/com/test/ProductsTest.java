@@ -6,7 +6,7 @@ import com.test.pages.ProductsPage;
 import org.testng.annotations.*;
 import org.testng.Assert;
 
-public class ProductsTest {
+public class ProductsTest extends BaseTest {
 
     private ProductsPage loginAndGetProductsPage(){
         LoginPage login = new LoginPage();

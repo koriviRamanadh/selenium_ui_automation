@@ -8,7 +8,7 @@ public class Cartpage extends BasePage{
     
     private final By pageTitle       = By.className("title");
     private final By cartItems = By.className("cart_item");
-    private final By removeButtons = By.xpath("//button[text() = 'remove']");
+    private final By removeButtons = By.xpath("//button[text() = 'Remove']");
     private final By checkoutButton = By.id("checkout");
     private final By continueButton = By.id("continue-shopping");
     private final By itemNames = By.className("inventory_item_name");

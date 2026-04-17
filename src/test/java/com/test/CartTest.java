@@ -31,7 +31,7 @@ public class CartTest extends BaseTest {
     }
 
     @Test(description = "verify item can be removed from cart")
-    public void testRemoveItemFromCart(){
+    public void testRemoveItemFromCart() {
         ProductsPage productsPage = loginAndGetProductsPage();
         productsPage.addFirstProductToCart();
         Cartpage cartPage = productsPage.goToCart();

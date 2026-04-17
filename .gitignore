@@ -21,6 +21,7 @@
 
 # Maven target directory
 target/
+allure-results/
 
 # Eclipse files
 .classpath

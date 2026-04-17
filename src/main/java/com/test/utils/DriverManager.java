@@ -49,7 +49,7 @@ public class DriverManager {
         }
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(ConfigReader.getImplicitWait()));
         webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(ConfigReader.getPageLoadTimeouts()));
-        webDriver.manage().window().maximize();
+        //webDriver.manage().window().maximize();
 
         driver.set(webDriver);
     }
