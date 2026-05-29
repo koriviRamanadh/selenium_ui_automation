@@ -99,7 +99,7 @@
             <version>3.1.2</version>
             <configuration>
                 <suiteXmlFiles>
-                    <suiteXmlFile>src/main/java/com/test/resources/testng.xml</suiteXmlFile>
+                    <suiteXmlFile>src/main/java/com/test/resources/testng.xml </suiteXmlFile>
                 </suiteXmlFiles>
                 <argLine>
                     -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.20/aspectjweaver-1.9.20.jar"
